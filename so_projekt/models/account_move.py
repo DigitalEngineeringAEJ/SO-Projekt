@@ -13,14 +13,8 @@ class AccountMove(models.Model):
         today = datetime.today()
         year = today.year
         month = today.month
-        first_day_month = (
-            datetime(year, month, 1)
-        ).date()
-        last_day_month = (
-            datetime(year, month, calendar.mdays[month])
-        ).date()
         moves = self.env["account.move"].search(
-            [('move_type', '=', 'out_invoice'), ('state', '=', 'posted'), ('invoice_date', '>=', first_day_month), ('invoice_date', '<=', last_day_month)])
+            [('move_type', '=', 'out_invoice'), ('state', '=', 'posted'), ('invoice_date', '>=', self.env.user.company_id.invoice_date_from), ('invoice_date', '<=', self.env.user.company_id.invoice_date_to)], order="invoice_date ASC")
         date_sent_mail = (
             datetime(year, month, int(self.env.user.company_id.day))
         ).date()
