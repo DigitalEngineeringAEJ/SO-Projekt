@@ -3,7 +3,7 @@ from datetime import datetime
 import csv
 from tempfile import TemporaryFile
 import base64
-import calendar
+
 
 class AccountMove(models.Model):
     _inherit = "account.move"
@@ -22,10 +22,10 @@ class AccountMove(models.Model):
         fileobj.seek(0)
 
         with open('invoices_customer.csv', mode='w', newline='') as csv_file:
-            writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+            writer = csv.writer(csv_file, delimiter=';', quoting=csv.QUOTE_NONE)
             writer.writerow(['Invoice amount gross incl. 7% VAT', 'S for debit entry', 'Customer number', '4300', 'Invoice date', 'Invoice number', 'Customer name'])
             for move in moves:
-                writer.writerow([move.amount_total if move.amount_total else "", 'S', move.partner_id.ref if move.partner_id.ref else "", '4300', move.invoice_date if move.invoice_date else "", move.name if move.name else "", move.partner_id.name if move.partner_id.name else ""])
+                writer.writerow([str(move.amount_total).replace(".",",") if move.amount_total else "", 'S', move.partner_id.ref if move.partner_id.ref else "", '4300', move.invoice_date.strftime("%d-%m-%Y") if move.invoice_date else "", move.name if move.name else "", move.partner_id.name if move.partner_id.name else ""])
 
         files = base64.b64encode(open('invoices_customer.csv', 'rb').read())
         values = {
