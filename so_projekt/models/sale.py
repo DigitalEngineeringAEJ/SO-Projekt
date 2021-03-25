@@ -7,7 +7,9 @@ class SaleOrder(models.Model):
     comment = fields.Text(string="Comment")
 
     def _create_invoices(self, grouped=False, final=False, date=None):
-        move = super(SaleOrder, self)._create_invoices(grouped=grouped, final=final, date=date)
-        if self.comment:
-            move.sudo().message_post(body=self.comment, author_id=move.partner_id.id, message_type='comment', )
-        return move
+        moves = super(SaleOrder, self)._create_invoices(grouped=grouped, final=final, date=date)
+        for order in self:
+            if order.comment:
+                for move in moves:
+                    move.sudo().message_post(body=order.comment, author_id=move.partner_id.id, message_type='comment', )
+        return moves
