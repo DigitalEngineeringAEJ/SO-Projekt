@@ -8,6 +8,13 @@ import base64
 class AccountMove(models.Model):
     _inherit = "account.move"
 
+    def _constrains_date_sequence(self):
+        # Multiple import methods set the name to things that are not sequences:
+        # i.e. Statement from {date1} to {date2}
+        # It makes this constraint not applicable, and it is less needed on bank statements as it
+        # is only an indication and not some thing legal.
+        return
+
     @api.model
     def sent_email_invoice_customers(self):
         today = datetime.today()

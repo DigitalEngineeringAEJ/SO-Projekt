@@ -1,6 +1,6 @@
 {
     "name": "SO Projekt",
-    "version": "1.0",
+    "version": "14.0.1.2",
     "depends": ["sale_management", "payment", "website_sale"],
     "data": [
         "data/so_projekt_data.xml",
