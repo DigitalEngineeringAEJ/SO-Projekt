@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="payment_sale_comment" inherit_id="payment.payment_tokens_list" name="Add comment">
+        <xpath expr="//form//div[hasclass('card')]" position="after">
+            <div  style="margin-top:5%;margin-bottom:5%">
+                <h3>Add comment </h3>
+                <textarea class="form-control" name="comment" id="comment" placeholder="Write a comment..."/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
