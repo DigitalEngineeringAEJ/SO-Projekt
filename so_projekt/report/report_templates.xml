@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <template id="report_assets_common_custom" inherit_id="web.report_assets_common">
+          <xpath expr="." position="inside">
+             <link rel="stylesheet" type="text/scss" href="/so_projekt/static/src/scss/layout_custom.scss"/>
+          </xpath>
+    </template>
+
+    <template id="external_layout_custom">
+        <div t-attf-class="header o_company_#{company.id}_layout">
+            <div class="o_custom_header">
+                <div class="row mb8">
+                    <div class="col-7 o_custom_header_address first-page">
+                       <span class="o_custom_header_name" t-field="company.partner_id.name"/> . <span t-if="company.partner_id.street" t-field="company.partner_id.street"/> .  <span t-if="company.partner_id.zip" t-field="company.partner_id.zip"/> <span t-if="company.partner_id.city" t-field="company.partner_id.city"/>
+                    </div>
+                    <div class="col-1">
+                    </div>
+                    <div class="col-4 text-left mb4">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                            <ul class="list-unstyled first-page" style="margin-top:5%;">
+                                <li t-if="company.partner_id.street"><span t-field="company.partner_id.street"/></li>
+                                <li t-if="company.partner_id.city or company.partner_id.city"><span t-if="company.partner_id.zip" t-field="company.partner_id.zip"/> <span t-if="company.partner_id.city" t-field="company.partner_id.city"/></li>
+                                <li t-if="company.phone">Tel. <span class="o_force_ltr" t-field="company.partner_id.phone"/></li>
+                                <li t-if="company.email"><span t-field="company.partner_id.email"/></li>
+                                <li t-if="company.website"><span t-field="company.partner_id.website"/></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div t-attf-class="article o_report_layout_custom o_company_#{company.id}_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+              <div class="pt-5">
+
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-raw="0"/>
+        </div>
+
+        <div t-attf-class="footer o_custom_footer o_company_#{company.id}_layout">
+
+                <div class="row mb8 first-page">
+                    <div class="col-4 text-left" style="margin-left:4%;">
+                        <span>Geschäftsführer</span>
+                         <ul class="list-unstyled" >
+                            <t t-foreach="company.partner_id.child_ids" t-as="child">
+                                 <li><t t-if="len(company.partner_id.child_ids)>1 and company.partner_id.child_ids[0]!= child"><span>&amp; </span></t><span t-field="child.name"/></li>
+                            </t>
+                         </ul>
+
+                    </div>
+                    <div class="col-4">
+                         <ul class="list-unstyled">
+                            <li><span t-if="company.partner_id.vat" t-field="company.partner_id.vat"/></li>
+                            <li><span t-if="company.partner_id.company_registry" t-field="company.partner_id.company_registry"/></li>
+                            <li><span t-if="company.partner_id.register_court_name" t-field="company.partner_id.register_court_name"/></li>
+                         </ul>
+                    </div>
+                     <div class="col-4">
+                         <t t-if="company.partner_id.bank_ids">
+                          <ul class="list-unstyled">
+                              <li><span t-if="company.partner_id.bank_ids[0].bank_id" t-field="company.partner_id.bank_ids[0].bank_id.name"/></li>
+                              <li><span t-if="company.partner_id.bank_ids[0].acc_number" t-field="company.partner_id.bank_ids[0].acc_number"/></li>
+                              <li><span t-if="company.partner_id.bank_ids[0].bank_id.bic" t-field="company.partner_id.bank_ids[0].bank_id.bic"/></li>
+                         </ul>
+                         </t>
+
+                    </div>
+                </div>
+        </div>
+    </template>
+
+    <template id="styles_company_report_custom" inherit_id="web.styles_company_report">
+        <xpath expr="//t[@t-set='layout']" position="after">
+               <t t-if="layout == 'so_projekt.external_layout_custom'">
+                 .o_report_layout_custom {
+                    h2 {
+                        color: <t t-esc='primary'/>;
+                    }
+                    #informations strong {
+                        color: <t t-esc='secondary'/>;
+                    }
+                    #total strong{
+                        color: <t t-esc='primary'/>;
+                    }
+                    table {
+                        thead {
+                            color: <t t-esc='secondary'/>;
+                        }
+                    }
+                }
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
