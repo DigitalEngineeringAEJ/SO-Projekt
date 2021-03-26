@@ -10,3 +10,5 @@ class ResCompany(models.Model):
     description = fields.Html(string="Description")
     invoice_date_from = fields.Date(string='Date From')
     invoice_date_to = fields.Date(string='Date To')
+    register_court_name = fields.Char(related='partner_id.register_court_name', string="Register Court Name", readonly=False)
+    company_registry = fields.Char(related='partner_id.company_registry', readonly=False)
