@@ -2,7 +2,7 @@ from odoo.api import Environment
 
 
 def migrate(cr, version):
-    """Update Invoices."""
+    """Update Invoices and Partners."""
     env = Environment(cr, 1, context={})
     invoices = env["account.move"].sudo().search([('move_type', '=', 'out_invoice'), ('state', '=', 'posted'), ('name', '!=', '/')], order="invoice_date, name")
     invoices_not_migrated = env["account.move"].sudo().search([('move_type', '=', 'out_invoice'), ('state', '=', 'posted'), ('name', 'ilike', '/')])
