@@ -9,6 +9,10 @@
              <field name="vat" position="after">
                  <field name="register_court_name"/>
              </field>
+            <field name="ref" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="force_save">1</attribute>
+            </field>
         </field>
      </record>
     

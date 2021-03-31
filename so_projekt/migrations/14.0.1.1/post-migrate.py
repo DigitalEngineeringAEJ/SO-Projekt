@@ -5,7 +5,7 @@ def migrate(cr, version):
     """Update Invoices."""
     env = Environment(cr, 1, context={})
     invoices = env["account.move"].sudo().search([('move_type', '=', 'out_invoice'), ('name', '!=', '/')], order="invoice_date, name")
-    print("Start")
+    print("Start change old invoice number")
     first_invoice = invoices[0]
     code_first_invoice = invoices[0].name.split('/', 4)
     invoices[0].name = "RG_10_%s" % str(code_first_invoice[3])
@@ -17,5 +17,14 @@ def migrate(cr, version):
             invoice.name = "RG_10_%04d" % new_code
             invoice.payment_reference = invoice.name
 
-    print("Finish")
+    print("Finish change old invoice number")
+    print("Start add automatically ref to partner")
+    partners = env["res.partner"].sudo().search([('ref', '=', False)], order="create_date")
+    partner_seq = env["ir.sequence"].search([('code', "=", "res.partner.seq")], limit=1)
+    ref = 10327
+    for partner in partners:
+        partner.ref = ref
+        ref = int(ref) + 1
+    partner_seq.number_next_actual = ref
+    print("Finish change old invoice number")
 

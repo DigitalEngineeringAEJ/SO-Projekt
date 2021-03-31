@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     
-     <record id="ir_sent_email_invoice_customers_cron" model="ir.cron">
+     <record id="ir_ent_email_invoice_customers_cron" model="ir.cron">
         <field name="name">Sent Invoices Customers Email</field>
         <field name="interval_number">1</field>
         <field name="interval_type">days</field>
@@ -11,5 +11,14 @@
         <field name="model_id" ref="account.model_account_move" />
         <field name="code">model.sent_email_invoice_customers()</field>
     </record>
-    
+
+    <data noupdate="1">
+
+        <record id="seq_res_partner" model="ir.sequence">
+            <field name="name">res.partner</field>
+            <field name="code">res.partner.seq</field>
+            <field name="padding">5</field>
+        </record>
+
+    </data>
 </odoo>
