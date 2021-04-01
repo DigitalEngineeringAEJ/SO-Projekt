@@ -1,3 +1,13 @@
 .navbar-nav .nav-link {
     border-bottom: 0.2rem solid transparent;
 }
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+

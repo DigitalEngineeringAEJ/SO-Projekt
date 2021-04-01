@@ -7,13 +7,5 @@
                 <textarea class="form-control" name="comment" id="comment" placeholder="Write a comment..."/>
             </div>
         </xpath>
-    </template>
-
-    <template id="option_header_brand_logo_inherit_so_projecy" inherit_id="website.option_header_brand_logo">
-       <xpath expr="//*[@id='o_fake_navbar_brand']" position="replace">
-           <a href="/" t-attf-class="logo #{_link_class}">
-                <span t-field="website.logo" t-options="{'widget': 'image'}" role="img" t-att-aria-label="'Logo of %s' % website.name" t-att-title="website.name"/>
-          </a>
-    </xpath>
 </template>
 </odoo>
