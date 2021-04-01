@@ -7,5 +7,5 @@
                 <textarea class="form-control" name="comment" id="comment" placeholder="Write a comment..."/>
             </div>
         </xpath>
-    </template>
+</template>
 </odoo>
