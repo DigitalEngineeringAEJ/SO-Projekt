@@ -11,8 +11,23 @@
         <div t-attf-class="header o_company_#{company.id}_layout">
             <div class="o_custom_header">
                 <div class="row mb8">
-                    <div class="col-7 o_custom_header_address first-page">
+                    <div class="col-7 o_custom_header_address">
+                    <div class="first-page">
                        <span class="o_custom_header_name" t-field="company.partner_id.name"/> . <span t-if="company.partner_id.street" t-field="company.partner_id.street"/> .  <span t-if="company.partner_id.zip" t-field="company.partner_id.zip"/> <span t-if="company.partner_id.city" t-field="company.partner_id.city"/>
+                    </div>
+                         <t t-if="address">
+                            <div class="address row text-left" style="margin-left:12%;margin-top:3%;">
+                                <t t-if="information_block">
+                                    <t t-set="colclass" t-value="'col-5 offset-1'"/>
+                                    <div name="information_block" class="col-6">
+                                        <t t-raw="information_block"/>
+                                    </div>
+                                </t>
+                                <div name="address" t-att-class="colclass">
+                                    <t t-raw="address"/>
+                                </div>
+                            </div>
+                         </t>
                     </div>
                     <div class="col-1">
                     </div>
@@ -31,10 +46,6 @@
         </div>
 
         <div t-attf-class="article o_report_layout_custom o_company_#{company.id}_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
-              <div class="pt-5">
-
-                <t t-call="web.address_layout"/>
-            </div>
             <t t-raw="0"/>
         </div>
 
