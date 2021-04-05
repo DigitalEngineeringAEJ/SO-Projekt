@@ -4,6 +4,9 @@ from odoo import fields, models
 class ResCompany(models.Model):
     _inherit = "res.company"
 
+    # ------------------------------------------------------------
+    # Fields
+    # ------------------------------------------------------------
     recipient_id = fields.Many2one('res.partner', string='Recipient')
     day = fields.Integer(string="Day", default=28)
     subject = fields.Char(string="Subject")

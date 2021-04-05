@@ -1,6 +1,6 @@
 {
     "name": "SO Projekt",
-    "version": "14.0.1.1",
+    "version": "14.0.1.2",
     "depends": ["sale_management", "payment", "website_sale"],
     "data": [
         "data/so_projekt_data.xml",
@@ -14,6 +14,7 @@
         "views/sale_views.xml",
         "views/res_partner_views.xml",
         "views/res_company_views.xml",
+        "views/account_report_invoice_views.xml",
     ],
     "installable": True,
 }
