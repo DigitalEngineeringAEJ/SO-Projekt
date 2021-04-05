@@ -1,0 +1,257 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* so_projekt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-05 10:28+0000\n"
+"PO-Revision-Date: 2021-04-05 10:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.styles_company_report_custom
+msgid ""
+".o_report_layout_custom {\n"
+"                    h2 {\n"
+"                        color:"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.styles_company_report_custom
+msgid ""
+";\n"
+"                    }\n"
+"                    #informations strong {\n"
+"                        color:"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.styles_company_report_custom
+msgid ""
+";\n"
+"                    }\n"
+"                    #total strong{\n"
+"                        color:"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.styles_company_report_custom
+msgid ""
+";\n"
+"                    }\n"
+"                    table {\n"
+"                        thead {\n"
+"                            color:"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.res_config_settings_view_form_inherit_so_project
+msgid "<span class=\"o_form_label\">DATEV</span>"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.external_layout_custom
+msgid "<span>Geschäftsführer</span>"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.payment_sale_comment
+msgid "Add comment"
+msgstr "Einen Kommentar hinzufügen"
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_sale_order__comment
+msgid "Comment"
+msgstr "Kommentar"
+
+#. module: so_projekt
+#: model:ir.model,name:so_projekt.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__company_registry
+#: model:ir.model.fields,field_description:so_projekt.field_res_partner__company_registry
+#: model:ir.model.fields,field_description:so_projekt.field_res_users__company_registry
+msgid "Company registry"
+msgstr "Firmenregister"
+
+#. module: so_projekt
+#: model:ir.model,name:so_projekt.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfiguration "
+
+#. module: so_projekt
+#: model:ir.model,name:so_projekt.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_account_bank_statement_line__customer_group_id
+#: model:ir.model.fields,field_description:so_projekt.field_account_invoice_report__customer_group_id
+#: model:ir.model.fields,field_description:so_projekt.field_account_move__customer_group_id
+#: model:ir.model.fields,field_description:so_projekt.field_account_payment__customer_group_id
+#: model:ir.model.fields,field_description:so_projekt.field_res_partner__customer_group_id
+#: model:ir.model.fields,field_description:so_projekt.field_res_users__customer_group_id
+msgid "Customer Group"
+msgstr "Kundengruppe"
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.view_account_invoice_report_search_inherit_so_project
+msgid "Customer group"
+msgstr "Kundengruppe"
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__invoice_date_from
+#: model:ir.model.fields,field_description:so_projekt.field_res_config_settings__invoice_date_from
+msgid "Date From"
+msgstr "Zurückgehen auf"
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__invoice_date_to
+#: model:ir.model.fields,field_description:so_projekt.field_res_config_settings__invoice_date_to
+msgid "Date To"
+msgstr "Datum zu"
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.res_config_settings_view_form_inherit_so_project
+msgid "Dates:"
+msgstr ""
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__day
+#: model:ir.model.fields,field_description:so_projekt.field_res_config_settings__day
+msgid "Day"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.res_config_settings_view_form_inherit_so_project
+msgid "Day:"
+msgstr ""
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__description
+#: model:ir.model.fields,field_description:so_projekt.field_res_config_settings__description
+msgid "Description"
+msgstr "Bezeichnung"
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.res_config_settings_view_form_inherit_so_project
+msgid "Description:"
+msgstr "Bezeichnung:"
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_account_invoice_report__display_name
+#: model:ir.model.fields,field_description:so_projekt.field_account_move__display_name
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__display_name
+#: model:ir.model.fields,field_description:so_projekt.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:so_projekt.field_res_partner__display_name
+#: model:ir.model.fields,field_description:so_projekt.field_sale_advance_payment_inv__display_name
+#: model:ir.model.fields,field_description:so_projekt.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_account_invoice_report__id
+#: model:ir.model.fields,field_description:so_projekt.field_account_move__id
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__id
+#: model:ir.model.fields,field_description:so_projekt.field_res_config_settings__id
+#: model:ir.model.fields,field_description:so_projekt.field_res_partner__id
+#: model:ir.model.fields,field_description:so_projekt.field_sale_advance_payment_inv__id
+#: model:ir.model.fields,field_description:so_projekt.field_sale_order__id
+msgid "ID"
+msgstr ""
+
+#. module: so_projekt
+#: model:ir.model,name:so_projekt.model_account_invoice_report
+msgid "Invoices Statistics"
+msgstr "Statistik Rechnungen"
+
+#. module: so_projekt
+#: model:ir.model,name:so_projekt.model_account_move
+msgid "Journal Entry"
+msgstr "Buchungssatz"
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_account_invoice_report____last_update
+#: model:ir.model.fields,field_description:so_projekt.field_account_move____last_update
+#: model:ir.model.fields,field_description:so_projekt.field_res_company____last_update
+#: model:ir.model.fields,field_description:so_projekt.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:so_projekt.field_res_partner____last_update
+#: model:ir.model.fields,field_description:so_projekt.field_sale_advance_payment_inv____last_update
+#: model:ir.model.fields,field_description:so_projekt.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.external_layout_custom
+msgid "Logo"
+msgstr ""
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__recipient_id
+#: model:ir.model.fields,field_description:so_projekt.field_res_config_settings__recipient_id
+msgid "Recipient"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.res_config_settings_view_form_inherit_so_project
+msgid "Recipient:"
+msgstr ""
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__register_court_name
+#: model:ir.model.fields,field_description:so_projekt.field_res_partner__register_court_name
+#: model:ir.model.fields,field_description:so_projekt.field_res_users__register_court_name
+msgid "Register Court Name"
+msgstr ""
+
+#. module: so_projekt
+#: model:ir.model,name:so_projekt.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Anzahlungsrechnung"
+
+#. module: so_projekt
+#: model:ir.model,name:so_projekt.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.res_config_settings_view_form_inherit_so_project
+msgid "Send an automatic email every month with a CSV"
+msgstr ""
+
+#. module: so_projekt
+#: model:ir.actions.server,name:so_projekt.ir_ent_email_invoice_customers_cron_ir_actions_server
+#: model:ir.cron,cron_name:so_projekt.ir_ent_email_invoice_customers_cron
+#: model:ir.cron,name:so_projekt.ir_ent_email_invoice_customers_cron
+msgid "Sent Invoices Customers Email"
+msgstr ""
+
+#. module: so_projekt
+#: model:ir.model.fields,field_description:so_projekt.field_res_company__subject
+#: model:ir.model.fields,field_description:so_projekt.field_res_config_settings__subject
+msgid "Subject"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.res_config_settings_view_form_inherit_so_project
+msgid "Subject:"
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.external_layout_custom
+msgid "Tel."
+msgstr ""
+
+#. module: so_projekt
+#: model_terms:ir.ui.view,arch_db:so_projekt.payment_sale_comment
+msgid "Write a comment..."
+msgstr ""

@@ -4,8 +4,14 @@ from odoo import fields, api, models
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    # ------------------------------------------------------------
+    # Fields
+    # ------------------------------------------------------------
     comment = fields.Text(string="Comment")
 
+    # ------------------------------------------------------------
+    # Methodes
+    # ------------------------------------------------------------
     def _create_invoices(self, grouped=False, final=False, date=None):
         moves = super(SaleOrder, self)._create_invoices(grouped=grouped, final=final, date=date)
         for order in self:

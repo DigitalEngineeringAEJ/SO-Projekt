@@ -1,4 +1,4 @@
-from odoo import _, api, models
+from odoo import _, api, models, fields
 from datetime import datetime
 import csv
 from tempfile import TemporaryFile
@@ -8,6 +8,14 @@ import base64
 class AccountMove(models.Model):
     _inherit = "account.move"
 
+    # ------------------------------------------------------------
+    # Fields
+    # ------------------------------------------------------------
+    customer_group_id = fields.Many2one('res.partner.category', related="partner_id.customer_group_id", string='Customer Group', store=1)
+
+    # ------------------------------------------------------------
+    # Constraints
+    # ------------------------------------------------------------
     def _constrains_date_sequence(self):
         # Multiple import methods set the name to things that are not sequences:
         # i.e. Statement from {date1} to {date2}
@@ -15,6 +23,9 @@ class AccountMove(models.Model):
         # is only an indication and not some thing legal.
         return
 
+    # ------------------------------------------------------------
+    # Methodes
+    # ------------------------------------------------------------
     @api.model
     def sent_email_invoice_customers(self):
         today = datetime.today()

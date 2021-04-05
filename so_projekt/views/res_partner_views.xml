@@ -13,7 +13,9 @@
                 <attribute name="readonly">1</attribute>
                 <attribute name="force_save">1</attribute>
             </field>
+            <field name="category_id" position="after">
+                <field name="customer_group_id" invisible="1"/>
+            </field>
         </field>
      </record>
-    
 </odoo>
