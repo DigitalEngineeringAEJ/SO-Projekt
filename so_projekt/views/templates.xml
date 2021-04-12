@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="payment_sale_comment" inherit_id="payment.payment_tokens_list" name="Add comment">
+        <xpath expr="//form//div[hasclass('card')]" position="after">
+            <div  style="margin-top:5%;margin-bottom:5%">
+                <h3>Add comment </h3>
+                <textarea class="form-control" name="comment" id="comment" placeholder="Write a comment..."/>
+            </div>
+        </xpath>
+        </template>
+
+        <template id="option_header_brand_logo_inherit_so_projekt" inherit_id="website.placeholder_header_brand" name="Header Brand Logo" active="True">
+            <xpath expr="//a[@href='/']" position="replace">
+                <a href="/" t-attf-class="logo #{_link_class}">
+                    <span t-field="website.logo" t-options="{'widget': 'image'}" role="img" t-att-aria-label="'Logo of %s' % website.name" t-att-title="website.name"/>
+                </a>
+           </xpath>
+</template>
+</odoo>
