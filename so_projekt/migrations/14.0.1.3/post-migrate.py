@@ -10,14 +10,17 @@ def migrate(cr, version):
     if invoices_not_migrated:
         first_invoice = invoices[0]
         code_first_invoice = invoices[0].name.split('/', 4)
+        invoices[0].old_name = invoices[0].name
         invoices[0].name = "RG_10_%s" % str(code_first_invoice[3])
         invoices[0].payment_reference = invoices[0].name
+        code = int(code_first_invoice[3])
         for invoice in invoices:
             if invoice != first_invoice:
-                code = invoice.name.split('/', 4)
-                new_code = int(code[3]) + 1
+                invoice.old_name = invoice.name
+                new_code = int(code) + 1
                 invoice.name = "RG_10_%04d" % new_code
                 invoice.payment_reference = invoice.name
+                code = new_code
     print("Finish change old invoice number")
     print("Start add automatically ref to partner")
     partners = env["res.partner"].sudo().search([('ref', '=', False)], order="create_date")
