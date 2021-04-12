@@ -12,6 +12,7 @@ class AccountMove(models.Model):
     # Fields
     # ------------------------------------------------------------
     customer_group_id = fields.Many2one('res.partner.category', related="partner_id.customer_group_id", string='Customer Group', store=1)
+    old_name = fields.Char('Old Name')
 
     # ------------------------------------------------------------
     # Constraints
@@ -22,6 +23,7 @@ class AccountMove(models.Model):
         # It makes this constraint not applicable, and it is less needed on bank statements as it
         # is only an indication and not some thing legal.
         return
+
 
     # ------------------------------------------------------------
     # Methodes
