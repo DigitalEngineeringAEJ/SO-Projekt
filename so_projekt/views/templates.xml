@@ -46,7 +46,7 @@
             <li class="col-sm-12 col-md-3">
                 <t t-set="children"
                    t-value="not search and c.child_id or c.child_id.filtered(lambda c: c.id in search_categories_ids)"/>
-                <div class="dropdown" style="margin-bottom:2%;">
+                <div class="dropdown" style="margin-bottom:5%;">
                     <t t-if="children">
                         <button class="btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;">
@@ -83,7 +83,7 @@
             <li class="col-sm-12 col-md-3">
                 <t t-set="children"
                    t-value="not search and c.child_id or c.child_id.filtered(lambda c: c.id in search_categories_ids)"/>
-                <div class="dropdown" style="margin-bottom:2%;">
+                <div class="dropdown" style="margin-bottom:5%;">
                     <t t-if="children">
                         <button class="btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;">
