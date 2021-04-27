@@ -113,4 +113,18 @@
     </template>
 
 
+    <template id="submenu_inherit" inherit_id="website.submenu">
+        <xpath expr="//ul[hasclass('dropdown-menu')]" position="attributes">
+            <attribute name="style">-webkit-appearance: none;-webkit-border-radius: 0px;</attribute>
+            <attribute name="id">dropdown_menu_color</attribute>
+        </xpath>
+    </template>
+
+    <template id="snippet_options_inherit" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-selector='theme-options']/we-row[last()]" position="before">
+            <we-colorpicker string="Submenu Color" data-customize-website-color="null" t-attf-data-color="o-cc-menu"/>
+        </xpath>
+    </template>
+
+
 </odoo>
