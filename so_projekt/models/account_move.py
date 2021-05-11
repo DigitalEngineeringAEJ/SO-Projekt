@@ -40,7 +40,6 @@ class AccountMove(models.Model):
         ).date()
         fileobj = TemporaryFile("w+")
         fileobj.seek(0)
-
         with open('invoices_customer.csv', mode='w', newline='') as csv_file:
             writer = csv.writer(csv_file, delimiter=';', quoting=csv.QUOTE_NONE)
             writer.writerow(['Invoice amount gross incl. 7% VAT', 'S for debit entry', 'Customer number', '4300', 'Invoice date', 'Invoice number', 'Customer name', 'Paypal Transaction'])
