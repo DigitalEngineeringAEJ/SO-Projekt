@@ -43,9 +43,13 @@ class AccountMove(models.Model):
 
         with open('invoices_customer.csv', mode='w', newline='') as csv_file:
             writer = csv.writer(csv_file, delimiter=';', quoting=csv.QUOTE_NONE)
-            writer.writerow(['Invoice amount gross incl. 7% VAT', 'S for debit entry', 'Customer number', '4300', 'Invoice date', 'Invoice number', 'Customer name'])
+            writer.writerow(['Invoice amount gross incl. 7% VAT', 'S for debit entry', 'Customer number', '4300', 'Invoice date', 'Invoice number', 'Customer name', 'Paypal Transaction'])
             for move in moves:
-                writer.writerow([str(move.amount_total).replace(".",",") if move.amount_total else "", 'S', move.partner_id.ref if move.partner_id.ref else "", '4300', move.invoice_date.strftime("%d-%m-%Y") if move.invoice_date else "", move.name if move.name else "", move.partner_id.name if move.partner_id.name else ""])
+                acquirer_reference = ""
+                transaction = self.env["payment.transaction"].sudo().search([('acquirer_id.provider', '=', 'paypal'), ('invoice_ids', 'in', [move.id])], limit=1)
+                if transaction:
+                    acquirer_reference = transaction.acquirer_reference
+                writer.writerow([str(move.amount_total).replace(".",",") if move.amount_total else "", 'S', move.partner_id.ref if move.partner_id.ref else "", '4300', move.invoice_date.strftime("%d-%m-%Y") if move.invoice_date else "", move.name if move.name else "", move.partner_id.name if move.partner_id.name else "", acquirer_reference])
 
         files = base64.b64encode(open('invoices_customer.csv', 'rb').read())
         values = {
