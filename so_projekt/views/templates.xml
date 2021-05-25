@@ -7,13 +7,124 @@
                 <textarea class="form-control" name="comment" id="comment" placeholder="Write a comment..."/>
             </div>
         </xpath>
-        </template>
+    </template>
 
-        <template id="option_header_brand_logo_inherit_so_projekt" inherit_id="website.placeholder_header_brand" name="Header Brand Logo" active="True">
-            <xpath expr="//a[@href='/']" position="replace">
-                <a href="/" t-attf-class="logo #{_link_class}">
-                    <span t-field="website.logo" t-options="{'widget': 'image'}" role="img" t-att-aria-label="'Logo of %s' % website.name" t-att-title="website.name"/>
-                </a>
-           </xpath>
-</template>
+    <template id="option_header_brand_logo_inherit_so_projekt" inherit_id="website.placeholder_header_brand"
+              name="Header Brand Logo" active="True">
+        <xpath expr="//a[@href='/']" position="replace">
+            <a href="/" t-attf-class="logo #{_link_class}">
+                <span t-field="website.logo" t-options="{'widget': 'image'}" role="img"
+                      t-att-aria-label="'Logo of %s' % website.name" t-att-title="website.name"/>
+            </a>
+        </xpath>
+    </template>
+
+
+    <template id="products_inherit_website_sale" inherit_id="website_sale.products">
+        <xpath expr="//div[@id='products_grid_before']" position="attributes">
+            <attribute name="class">col-lg-12</attribute>
+
+        </xpath>
+    </template>
+
+    <template id="products_categories_inherit" inherit_id="website_sale.products_categories">
+        <xpath expr="//div[@id='wsale_products_categories_collapse']/ul" position="attributes">
+            <attribute name="class">mb-2 item</attribute>
+            <attribute name="id">o_shop_collapse_category</attribute>
+        </xpath>
+
+        <xpath expr="//div[@id='wsale_products_categories_collapse']/ul/li" position="attributes">
+            <attribute name="style">width: 100%;</attribute>
+        </xpath>
+    </template>
+
+
+    <template id="option_collapse_categories_recursive_inherit"
+              inherit_id="website_sale.option_collapse_categories_recursive" name="Collapse Category Recursive">
+
+        <xpath expr="//li" position="replace">
+            <li class="col-sm-12 col-md-3">
+                <t t-set="children"
+                   t-value="not search and c.child_id or c.child_id.filtered(lambda c: c.id in search_categories_ids)"/>
+                <div class="dropdown" style="margin-bottom:5%;">
+                    <t t-if="children">
+                        <button class="btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;">
+                            <a style="color:white;" t-att-href="keep('/shop/category/' + slug(c), category=0)"
+                               t-attf-class="nav-link #{'active' if c.id == category.id else ''}" t-field="c.name"></a>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style=" -webkit-appearance: none;
+  -webkit-border-radius: 0px;">
+                            <t t-foreach="children" t-as="c">
+                                <a t-att-href="keep('/shop/category/' + slug(c), category=0)" class="dropdown-item"
+                                   t-field="c.name" style="width:90%;"></a>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <button class="btn-secondary" type="button" id="dropdownMenuButton" style="width:100%;">
+                            <a style="color:white;" t-att-href="keep('/shop/category/' + slug(c), category=0)"
+                               t-attf-class="nav-link #{'active' if c.id == category.id else ''}" t-field="c.name"></a>
+                        </button>
+
+
+                    </t>
+                </div>
+
+            </li>
+        </xpath>
+
+    </template>
+
+    <template id="categories_recursive_inherit" inherit_id="website_sale.categories_recursive"
+              name="Collapse Category Recursive">
+
+        <xpath expr="//li" position="replace">
+            <li class="col-sm-12 col-md-3">
+                <t t-set="children"
+                   t-value="not search and c.child_id or c.child_id.filtered(lambda c: c.id in search_categories_ids)"/>
+                <div class="dropdown" style="margin-bottom:5%;">
+                    <t t-if="children">
+                        <button class="btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;">
+                            <a style="color:white;" t-att-href="keep('/shop/category/' + slug(c), category=0)"
+                               t-attf-class="nav-link #{'active' if c.id == category.id else ''}" t-field="c.name"></a>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style=" -webkit-appearance: none;
+  -webkit-border-radius: 0px;">
+                            <t t-foreach="children" t-as="c">
+                                <a t-att-href="keep('/shop/category/' + slug(c), category=0)" class="dropdown-item"
+                                   t-field="c.name" style="width:90%;"></a>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <button class="btn-secondary" type="button" id="dropdownMenuButton" style="width:100%;">
+                            <a style="color:white;" t-att-href="keep('/shop/category/' + slug(c), category=0)"
+                               t-attf-class="nav-link #{'active' if c.id == category.id else ''}" t-field="c.name"></a>
+                        </button>
+
+
+                    </t>
+                </div>
+            </li>
+        </xpath>
+
+    </template>
+
+
+    <template id="submenu_inherit" inherit_id="website.submenu">
+        <xpath expr="//ul[hasclass('dropdown-menu')]" position="attributes">
+            <attribute name="style">-webkit-appearance: none;-webkit-border-radius: 0px;</attribute>
+            <attribute name="id">dropdown_menu_color</attribute>
+        </xpath>
+    </template>
+
+    <template id="snippet_options_inherit" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-selector='theme-options']/we-row[last()]" position="before">
+            <we-colorpicker string="Submenu Color" data-customize-website-color="null" t-attf-data-color="o-cc-menu"/>
+        </xpath>
+    </template>
+
+
 </odoo>
